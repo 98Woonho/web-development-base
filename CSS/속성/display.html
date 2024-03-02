@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS display 속성</title>
+    <style>
+        /*.sample {*/
+        /*    width: 10rem;*/
+        /*    height: 10rem;*/
+        /*    background-color: red;*/
+        /*    display: inline; !* width, height가 무시 됨 *!*/
+        /*}*/
+
+        .sw {
+            font-weight: bold;
+            font-size: 3rem;
+        }
+        
+        .box1 {
+            color: white;
+            background-color: black;
+            padding: 10px;
+            margin: 20px;
+            border: 3px solid red;
+        }
+
+        .inline1 {
+            color: white;
+            width: 10000px; /* inline은 width, height가 무시됨 */
+            background-color: blue;
+            padding: 10px;
+            margin: 30px;
+        }
+
+        .inline2 {
+            display: block; /* 블록 요소로 변경 */
+            margin-top: 10px; /* 윗 부분만 margin(여백)을 준다. */
+        }
+
+        .box2 {
+            display: inline-block;
+        }
+
+        button {
+            padding: 5px 30px;
+            border: none;
+            font-size: 30px;
+            background-color: rebeccapurple;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blueviolet;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div class="sample">I love Doyeon</div>-->
+<br>
+<br>
+<article class="sw">[김성우 강사님 내용]</article>
+
+<div class="box1">박스 모델</div>
+<span class="inline1">인라인 모델</span>
+<span class="inline2">인라인 모델 2</span>
+<div class="box2">박스 모델 2</div>
+<span>인라인 모델 3</span>
+<button>인라인버튼!</button>
+</body>
+</html>

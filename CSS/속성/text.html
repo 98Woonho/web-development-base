@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS text 속성</title>
+    <style>
+        .align {
+            width: 300px;
+            background-color: rgb(200,200,200);
+            text-align: justify;
+        }
+
+        span.wrong {
+            text-decoration: line-through rgb(255, 100, 100) wavy;
+        }
+
+        div.title {
+            width: 300px;
+            background-color: rgb(225, 225, 225);
+
+            /*아래 세 개 코드는 세트*/
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        div.shadow {
+            font-size: 3rem;
+            text-shadow: 0 0 0.5rem rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="align">Lorem ipsum dolor sit amet, <span class="wrong">consectetur adipiscing elit. Morbi at ante leo.</span> Integer tincidunt eros quis mi eleifend, rhoncus pellentesque ligula luctus. Phasellus lobortis suscipit dictum. Pellentesque tincidunt risus malesuada suscipit maximus. Donec consequat est ac urna aliquam, scelerisque aliquam lectus facilisis. Cras rutrum at sapien vel mattis. Donec libero mauris, commodo ut sodales in, iaculis quis sem. Sed felis neque, sagittis in metus nec, lobortis malesuada metus.</div>
+
+<br>
+
+<div class="title">[날씨] 내일∼모레 전국에 비...남해안에는 또 150mm 집중호우</div>
+
+<br><br>
+
+<div class="shadow">안녕하세요</div>
+
+</body>
+</html>

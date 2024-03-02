@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XHR 실습</title>
+</head>
+<body>
+
+<div id="message">IP를 불러오기 위해 [불러오기] 버튼을 클릭해 주세요.</div>
+<button id="button">불러오기</button>
+<br><br>
+<input type="text">
+
+<script>
+    const message = document.getElementById('message');
+    const button = document.getElementById('button');
+    button.onclick = function() {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState);
+        };
+        xhr.open('GET', 'https://api64.ipify.org/?format=json');
+        xhr.send();
+        console.log(xhr.responseText); // xhr.open 실행 후 xhr.send가 실행 되어서 readyState가 4가 되어서 responseText가 찍히는 것이 이상적이지만, send로 전송한 요청이 서버에 받아들여지기까지의 시간이 코드를 실행하는 시간보다 훨씬 길어서 open(1)이 뜨고, 서버에 받아들여졌다는 2라는 숫자가 뜨기 전에 console.log(xhr.responseText)가 실행되어서 공백으로 뜨는 것임.
+
+
+
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === XMLHttpRequest.DONE) {
+    //             const responseObject = JSON.parse(xhr.responseText); // 문자열을 넣으면 Array or Object로 반환
+    //             message.innerText = `당신의 IP 주소는 [${responseObject['ip']}]입니다.`;
+    //         }
+    //     };
+    //     xhr.open('GET', 'https://api64.ipify.org/?format=json');
+    //     xhr.send();
+    //     message.innerText = '요청을 전송하였습니다. 잠시만 기다려 주십시오.'
+    // };
+
+
+
+
+
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === XMLHttpRequest.DONE) {
+    //             if (xhr.status >= 200 && xhr.status < 300) {
+    //                 // 성공 로직
+    //             } else {
+    //                 // 실패 로직
+    //             }
+    //         }
+    //     };
+    //     xhr.open('GET', 'https://api64.ipify.org/?format=json');
+    //     xhr.send();
+
+
+
+    };
+</script>
+
+</body>
+</html>

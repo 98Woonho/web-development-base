@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 선택자 실습</title>
+    <style>
+        /* 유형 선택자 예제 */
+        a { /* .이 없으니 a라는 태그를 가리킴 */
+            color: chocolate;
+        }
+
+        /* 클래스 선택자 예제 */
+        .global-italic { /* .이 있어야 클래스를 가리킴. 없으면 태그를 가리킴 */
+            font-style: italic;
+            background-color: orange;
+        }
+
+        .global-light {
+            font-weight: lighter;
+            background-color: green;
+        }
+
+        /*위에 있는 두 클래스를 다 사용하는데 background-color가 둘 다 있으면, 아래쪽이 우선순위임*/
+
+        /*두 클래스를 사용하는 애의 style을 변경하고 싶은 경우*/
+        /*우선순위가 위에 2개 보다 높음*/
+        .global-light.global-italic {
+            background-color: yellow;
+        }
+
+
+        /*h2.global-italic { !* 이러면 h2의 글씨만 기울어짐. *!*/
+        /*    font-style: italic;*/
+        /*}*/
+
+        /* 아이디 선택자 예제 */
+        #subtitle {
+            color: purple;
+        }
+
+
+        /* 특성 선택자 예제 */
+        input[disabled] {
+            cursor: not-allowed; /*disabled 사용하는 input 태그의 커서 모양 변경*/
+        }
+
+        input[type="password"] {
+            background-color: orange;
+        }
+
+        /*[type] {   속성이 있기만 하면 바뀜*/
+        /*    !* ... *!*/
+        /*}*/
+
+
+        /* 선택자 목록 예제 */
+        /*h1, h2, h3, h4, h5, h6 {*/
+        /*    font-size: unset;*/
+        /*}*/
+
+        #menu .title { /* menu 태그에서 title이라는 class를 가지는 모든 자식 및 자손 (== #menu > .submenu-wrapper > .title) */
+            font-size: 1.125rem;
+        }
+
+        /* 일반 형제 결합자 예제 */
+        /*#alphabet > .c ~ li { !* 형제 이므로 c 아래인 d, e, f가 빨간색으로 변함 *!*/
+        /*    color: red;*/
+        /*}*/
+
+
+        /* 인접 형제 결합자 예제 */
+        /*#alphabet > .c + * {*/
+        /*    color: red;*/
+        /*}*/
+
+
+        /* 의사 클래스 */
+        .button {
+            color: black;
+        }
+
+        .button:active { /* 마우스를 누르면 해당 색깔로 바뀜 */
+            color: red;
+        }
+
+        #term > [type="checkbox"]:checked + .message {
+            color: red;
+        }
+
+        #alphabet > li.a:first-child { /* alphabet의 첫 번째 자식이면서 li 태그이면서 a */
+            color: red;
+        }
+
+        .in:focus {
+            color: red;
+        }
+
+        .label:focus-within { /* label 혹은 label의 자식이나 자손에 포커스가 들어 간 경우 실행 */
+            font-weight: bold;
+        }
+
+        .message:hover {
+            color: red;
+        }
+
+        .message:active { /* hover보다 active를 먼저 쓰면 active가 무시 됨 */
+            color: blue;
+        }
+
+        table > tbody > tr:nth-child(odd) { /* 홀수번째 tr에만 배경색 적용. even이면 짝수 */
+            background-color: #f0f5fa;
+        }
+
+        table > tbody > tr:nth-child(odd):hover { /* 홀수번째 tr에만 배경색 적용. even이면 짝수 */
+            background-color: #f0f5fa;
+        } /* tr:nth-child(odd):hover 이런식으로도 가능 */
+    </style>
+</head>
+<body>
+
+<!--<a>부최미 김도연!!!!</a>-->
+
+<!--&lt;!&ndash;h2.global-italic 이라 치고 Tab 누르면 자동완성 됨&ndash;&gt;-->
+<!--<h2 class="global-italic global-light">도연아 사랑해!!!!!!!!!!!!</h2>-->
+<!--<h3 class="global-italic">애기야 보고싶어!!!!!!!!!!!</h3>-->
+
+<!--&lt;!&ndash;h4#subtitle 이라 치고 Tab 누르면 자동완성 됨&ndash;&gt;-->
+<!--<h4 id="subtitle">내 여자친구 최고</h4>-->
+
+<!--<input type="text" placeholder="계좌번호를 입력해 주세요.">-->
+<!--<input type="password" placeholder="비밀번호를 입력해 주세요.">-->
+<!--<input disabled type="text" placeholder="비밀번호를 한 번 더 입력해 주세요.">-->
+<!--<input disabled type="text" placeholder="이름을 입력해 주세요.">-->
+
+
+<h1 class="title">메뉴판</h1>
+<ul id="menu">
+    <li class="submenu-wrapper">
+        <h2 class="title">중식</h2>
+        <ul class="submenu">
+            <li class="item">짜장면</li>
+            <li class="item">짬뽕</li>
+            <li class="item">볶음밥</li>
+            <li class="item">짬뽕밥</li>
+            <li class="item">중화비빔밥</li>
+        </ul>
+    </li>
+    <li class="submenu-wrapper">
+        <h2 class="title">한식</h2>
+        <ul class="submenu">
+            <li class="item">김치찌개</li>
+            <li class="item">된장찌개</li>
+            <li class="item">순두부찌개</li>
+            <li class="item">부대찌개</li>
+            <li class="item">닭볶음탕</li>
+        </ul>
+    </li>
+</ul>
+
+
+<!--<ul id="alphabet">-->
+<!--    <li class="a">a</li>-->
+<!--    <li class="b">b</li>-->
+<!--    <li class="c">c</li>-->
+<!--    <li class="d">d</li>-->
+<!--    <li class="e">e</li>-->
+<!--    <li class="f">f</li>-->
+<!--</ul>-->
+
+
+<!--<span class="button">커스텀 버튼</span>-->
+
+
+<!--<label id="term">-->
+<!--    <input type="checkbox">-->
+<!--    <span class="message">위 서비스 이용약관을 읽어보았으며 이해하였고 동의합니다.</span>-->
+<!--</label>-->
+
+
+<!--<input class="in">-->
+
+
+<!--<label class="label">-->
+<!--    <div class="title">이메일</div>-->
+<!--    <input type="email">-->
+<!--</label>-->
+
+
+<!--<span class="message">Hello World</span>-->
+
+</body>
+</html>

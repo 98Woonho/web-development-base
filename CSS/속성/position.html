@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>position</title>
+    <style>
+        .container {
+            position: relative;
+            height: 200px;
+            border: 1px solid #000;
+        }
+
+        .static {
+            position: static;
+        }
+
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #f00;
+            color: #fff;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 100px;
+            background-color: #00f;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="static">Static</div>
+    <div class="relative">Relative</div>
+    <div class="absolute">Absolute</div>
+    <div class="fixed">Fixed</div>
+    <div class="sticky">Sticky</div>
+</div>
+
+
+</body>
+</html>
