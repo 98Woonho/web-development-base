@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS filter 속성</title>
+    <style>
+        img {
+            width: 15rem;
+            /*filter: blur(0.1rem); !* blur *!*/
+            /*filter: brightness(50%); !* brightness *!*/
+
+            /*filter: blur(0.1rem) brightness(50%); !* 공백으로 여러 함수 사용 가능 *!*/
+
+            /*filter: grayscale(100%);*/
+
+            filter: hue-rotate(100deg);
+        }
+
+        img:active { /* 마우스 클릭 했을 때 */
+            filter: none;
+        }
+
+        /*img:hover { !* 마우스 올렸을 때 *!*/
+        /*    filter: blur(0) brightness(50%);*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<img src="https://image.msscdn.net/images/goods_img/20191031/1208988/1208988_1_500.jpg" alt="">
+
+</body>
+</html>

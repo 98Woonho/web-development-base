@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS z-index</title>
+    <style>
+        div.box {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        div.box:first-child {
+            top: 0;
+            left: 0;
+            background-color: rgb(255, 100, 100);
+            z-index: 3;
+        }
+
+        div.box:nth-child(2) {
+            top: 50px;
+            left: 50px;
+            background-color: rgb(100, 255, 100);
+            z-index: 1;
+        }
+
+        div.box:nth-child(3) {
+            top: 100px;
+            left: 100px;
+            background-color: rgb(100, 100, 255);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+
+</body>
+</html>

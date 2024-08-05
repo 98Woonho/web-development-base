@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form, input, select, option, textarea 태그</title>
+</head>
+<body>
+
+
+<form action="submit.php" method="POST">
+    <label for="username">Username : </label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password : </label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+</form>
+
+<br>
+<br>
+
+<label for="food"><div>음식</div></label>
+<select name="food" id="food">
+    <option>김치찌개</option>
+    <option>된장찌개</option>
+    <option>순두부찌개</option>
+</select>
+
+<br>
+<br>
+
+<select>
+    <optgroup label="과일">
+        <option>사과</option>
+        <option>바나나</option>
+        <option>딸기</option>
+    </optgroup>
+    <optgroup label="야채">
+        <option>당근</option>
+        <option>브로콜리</option>
+        <option>토마토</option>
+    </optgroup>
+</select>
+
+
+<br>
+<br>
+<br>
+
+
+<textarea name="menu" cols="30" rows="10">
+    메뉴를 입력하세요.
+</textarea>
+
+<br>
+<br>
+<br>
+
+text
+<input type="text">
+<br>
+password
+<input type="password">
+<br>
+submit
+<input type="submit">
+<br>
+checkbox
+<input type="checkbox">
+<input type="checkbox">
+<input type="checkbox">
+<br>
+color
+<input type="color">
+<br>
+date
+<input type="date">
+<br>
+datetime-local
+<input type="datetime-local">
+<br>
+email
+<input type="email">
+<br>
+file
+<input type="file">
+<br>
+hidden
+<input type="hidden">
+<br>
+number
+<input type="number">
+<br>
+radio
+<input name = "hi" type="radio">
+<input name = "hi" type="radio">
+<input name = "hi" type="radio">
+<br>
+range
+<input type="range">
+<br>
+reset
+<input type="reset">
+<br>
+search
+<input type="search">
+<br>
+tel
+<input type="tel">
+<br>
+time
+<input type="time">
+<br>
+url
+<input type="url">
+<br>
+
+
+
+</body>
+</html>

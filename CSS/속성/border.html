@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS border 속성</title>
+    <style>
+        div {
+            background-color: rgb(150, 150, 150);
+            border: 2px solid rgb(120, 120, 120);
+            border-radius: 10px;
+
+            display: inline-block; /* 글자 길이에 배경 색 라인 맞춤 */
+            padding: 10px 15px;
+        }
+
+        div.circle {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div>Hello World</div>
+<div class="circle"></div>
+
+</body>
+</html>

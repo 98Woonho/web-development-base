@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>학생 성적</title>
+    <script>
+        let studentScores = {
+            류혜진: 87,
+            배은경: 96,
+            최하영: 34,
+            한고은: 100,
+            권한별: 98,
+            허웅: 48,
+            최버들: 80,
+            백채윤: 91,
+            윤경모: 82,
+            장재범: 77,
+        };
+        let sum = 0;
+
+        let studentNames = Object.keys(studentScores);
+        for (let studentName of studentNames) {
+            sum += studentScores[studentName];
+        }
+
+        let avg = sum / studentNames.length;
+
+        // console.log('학생 성적 평균 : ' + avg);
+        console.log(`학생 성적 평균 : ${avg}`);
+
+
+
+        let max = studentScores[studentNames[0]];
+        let min = studentScores[studentNames[0]];
+
+        let maxName = studentNames[0];
+        let minName = studentNames[0];
+
+        for(let i=1; i<studentNames.length; i++) {
+            if (max < studentScores[studentNames[i]]) {
+                max = studentScores[studentNames[i]];
+                maxName = studentNames[i];
+            } else {
+                max = max;
+            }
+
+            if (min > studentScores[studentNames[i]]) {
+                min = studentScores[studentNames[i]];
+                minName = studentNames[i];
+            } else {
+                min = min;
+            }
+        }
+
+        console.log(`최고 득점자는 ${maxName}이고 점수는 ${max}점입니다.`);
+        console.log(`최저 득점자는 ${minName}이고 점수는 ${min}점입니다.`);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

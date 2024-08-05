@@ -1,0 +1,21 @@
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                 conn = DriverManager.getConnection(url,username,password);
+                 pstmt = conn.prepareStatement("select * from signature");
+                 rs =pstmt.executeQuery();
+
+                 if(rs.next())
+                 {
+
+                     byte [] keyByte =  rs.getBytes("signaturekey");                 //DB로 서명Key꺼내옴
+                     this.key = Keys.hmacShaKeyFor(keyByte);                                    //this.key에 저장
+                     System.out.println("[JwtTokenProvider] Key : " + this.key );
+                 }
+                 else {
+                     byte[] keyBytes = KeyGenerator.getKeygen();     //난수키값 가져오기
+                     this.key = Keys.hmacShaKeyFor(keyBytes);        // 생성된 키를 사용하여 HMAC SHA(암호화알고리즘)알고리즘에 기반한 Key 객체 생성
+                     pstmt = conn.prepareStatement("insert into signature values(?,now())");
+
+                     pstmt.setBytes(1, keyBytes);
+                     pstmt.executeUpdate();
+                     System.out.println("[JwtTokenProvider] Constructor Key init: " + key);
+                 }

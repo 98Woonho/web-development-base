@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lorem_float 예제</title>
+    <style>
+        /*
+            box 요소를 중앙 정렬 하는 법!
+            1.
+                1) 부모 요소에 text-align: center를 준다.
+                2) 정렬할 요소에 display: inline-block을 설정한다.
+            2.
+                정렬할 요소에 margin: auto; 를 설정한다.
+            3.
+                1) 부모 요소에 display: flex;를 설정하고,
+                2) 부모 요소에 justify-content: center를 설정한다.
+         */
+        h1 {
+            width: 200px;
+            text-align: center;
+            background-color: beige;
+            margin: auto; /* margin: auto 값을 주면, 남는 여백을 전부 margin으로 채움. 그래서 가운데 정렬할 때 씀 */
+        }
+
+        article {
+            width: 300px;
+            float: left;
+            margin: 10px;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 10px;
+        }
+
+        footer {
+            /* 백분율 값은 부모 요소에 영향을 받고, 부모를 기준으로 설정 */
+            width: 100%;
+            clear: left;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <h1>Lorem Ipsum</h1>
+    <article>
+        <h3>What is Lorem Ipsum?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eveniet laudantium, nulla odio officia perferendis voluptate? Aliquid architecto, atque blanditiis dicta id ipsum officia, quibusdam quod sunt ullam vel vero!</p>
+    </article>
+    <article>
+        <h3>Why do we use it?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi consectetur ducimus earum expedita facere laboriosam nostrum omnis, quae quisquam rerum tempore vel. Alias consequatur hic nemo sit tempora voluptatum?</p>
+    </article>
+    <article>
+        <h3>Where does it come from?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi consectetur ducimus earum expedita facere laboriosam nostrum omnis, quae quisquam rerum tempore vel. Alias consequatur hic nemo sit tempora voluptatum?</p>
+    </article>
+    <article>
+        <h3>Where can I get some?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi consectetur ducimus earum expedita facere laboriosam nostrum omnis, quae quisquam rerum tempore vel. Alias consequatur hic nemo sit tempora voluptatum?</p>
+    </article>
+
+    <footer>
+        <p>
+            help@lipsum.com <br>
+            Privacy Policy · Do Not Sell My Personal Information · Change Consent
+        </p>
+    </footer>
+</section>
+
+</body>
+</html>

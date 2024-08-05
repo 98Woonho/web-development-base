@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS transition 속성 예제</title>
+    <style>
+        body > .warning {
+            font-size: 10rem;
+            padding: 1rem 1.25rem;
+            display: inline-block;
+            background-color: rgb(225,50,50);
+            color: rgb(255, 255, 255);
+            transition-duration: 1s;
+            transition-property: background-color; /* background-color 속성에만 transition을 적용 */
+        }
+
+        body > .warning:active {
+            background-color: rgb(50,50,225);
+            color: yellow;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        body > .box {
+            width: 5rem;
+            height: 5rem;
+            background-color: rgb(255,100,100);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition-duration: 2500ms;
+            transition-timing-function: linear;
+        }
+
+        body:active > .box {
+            left: calc(100% - 5rem);
+        }
+    </style>
+</head>
+<body>
+
+<!--<div class="warning">경고</div>-->
+
+<div class="box"></div>
+
+</body>
+</html>

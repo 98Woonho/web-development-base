@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS display-flex 속성 예제</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+    <style>
+        body {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            margin: unset;
+
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+
+        }
+
+        /* input 태그의 font 설정 */
+        input {
+            font: inherit;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-block: unset;
+            margin-inline: unset;
+            padding-inline: unset;
+        }
+
+        #header {
+
+        }
+
+        #header > .nav > .menu {
+            gap: 1.25rem;
+            align-items: center; /* flex-direction과 수직한 방향에 대한 정렬 */
+            display: flex; /* menu가 가지고 있는 자식들의 display */
+            flex-direction: row; /* menu가 가지고 있는 자식들의 direction */
+            justify-content: flex-start; /* flex-direction과 수평한 방향에 대한 정렬 */
+            padding: 0.75rem 1.5rem;
+        }
+
+        #header > .nav > .menu > .spring {
+            /*flex-grow: 1;*/
+            /*flex-shrink: 1;*/
+            flex: 1; /* 위 2개의 코드를 한 줄로 */
+        }
+
+        #header > .nav > .menu > .item > .link {
+            column: inherit;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #header > .nav > .menu > .item > .link:hover {
+            text-decoration: underline;
+        }
+
+        #header > .nav > .menu > .login > .link {
+            background-color: rgb(27, 116, 232);
+            color: rgb(255, 255, 255);
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 0.25rem;
+            letter-spacing: 0.0625rem; /* 0.0625rem = 1px */
+        }
+
+        /* checkbox가 체크 되었을 때의 인접 형제인 label 태그 */
+        #header > .nav > .menu > .apps > .input:checked + label {
+            background-color: rgb(217,218,219);
+        }
+
+        #header > .nav > .menu > .apps > .input {
+            display: none; /* 체크박스가 사라짐. 하지만 input 태그로서의 역할은 함. */
+        }
+
+        #header > .nav > .menu > .apps > .label {
+            line-height: 0; /* 태그 사이를 텍스트로 인식해서 세로로 살짝 긴 타원형으로 보이는 것을 없애기 위해 */
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: inline-block;
+        }
+
+        #header > .nav > .menu > .apps > .label > .image {
+            width: 1.375rem;
+        }
+
+        #header > .nav > .menu > .apps > .label:hover {
+            background-color: rgb(240, 240, 240);
+        }
+
+        #header > .nav > .menu > .login > .link:hover {
+            background-color: rgb(28, 103, 201);
+        }
+
+        #main {
+            flex: 1;
+        }
+
+        #footer {
+            background-color: rgb(242, 242, 242);
+            color: rgb(112, 117, 122);
+        }
+
+        #footer > .row {
+            padding: 1rem 2rem /* 위 아래 0.75rem, 좌우 2rem padding */
+        }
+
+        #footer > .row + .row {
+            border-top: 0.0625rem solid rgb(218,220,224);
+        }
+
+        #footer > .nav > .menu {
+            font-size: 0.9rem;
+
+            gap : 2rem;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        #footer > .nav > .menu > .item > .link {
+            color: inherit;
+            text-decoration: unset;
+        }
+
+        #footer > .nav > .menu > .item > .link:hover {
+            text-decoration: underline;
+        }
+
+        #footer > .nav > .menu > .spring {
+            flex: 1;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            align-items: center;
+
+            padding: 5rem 0;
+        }
+
+        /*#main > .search {*/
+        /*    align-items: center;*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*    justify-content: center;*/
+        /*}*/
+
+        #main > .search > .button-container {
+            margin-top: 1.75rem;
+
+            align-items: stretch;
+            gap: 0.625rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #main > .search > .button-container > .button {
+            background-color: rgb(248, 249, 250);
+            border: 0.0625rem solid transparent; /* none을 하면 hover 일 때 테두리가 생겨서 들썩거리는 현상이 나타남 */
+            border-radius: 0.125rem;
+            padding: 0.55rem 1.125rem;
+            cursor: pointer;
+        }
+
+        #main > .search > .button-container > .button:hover {
+            border: 0.0625rem solid rgb(218,220,224);
+        }
+
+        #main > .search > .button-container > .button:focus {
+            border: 0.0625rem solid rgb(61,133,244);
+        }
+
+        #main > .search > .keyword-container {
+            width: 36.25rem;
+            border: 0.0625rem solid rgb(223, 225, 229);
+            border-radius: 999rem;
+            box-sizing: border-box;
+            padding: 0 0.375rem 0 1rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        #main > .search > .keyword-container > .symbol {
+            width: 1.25rem;
+            fill: rgb(154,160,166); /* svg 태그의 색상 채우기 */
+            margin-right: 1rem;
+        }
+
+        #main > .search > .keyword-container > .keyword {
+            top: -0.0625rem;
+            border: none;
+            flex: 1;
+            font-size: 1.125rem;
+            position: relative;
+            outline: none;
+        }
+
+        #main > .search > .keyword-container > .feature {
+            text-decoration: none;
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main > .search > .keyword-container > .feature > .icon {
+            width: 1.425rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <nav class="nav">
+        <ul class="menu">
+            <li class="item">
+                <a href="#" class="link">Google 정보</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">스토어</a>
+            </li>
+            <li class="spring"></li> <!-- 스토어와 Gmail사이의 공간을 만들기 위한 태그 -->
+            <li class="item">
+                <a href="#" class="link">Gmail</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">이미지</a>
+            </li>
+            <li class="apps" title="Google 앱"> <!-- title : 해당 태그에 커서를 올리면 title에 입력한 값이 화면에 출력이 됨. -->
+                <input class ="input" id="appToggle" type="checkbox">
+                <label class="label" for="appToggle">
+                    <img alt="앱" class="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2klEQVR4nO3aW0oDMRSA4dmBCuoidDVensowSUxMkwGRqlvxgpurLkNfKjFKiwpOa0qdM/8HA0XkeMBxLvJXFQAAAAAAALApoxh3jGtPtYtXxraT9Fmpy23mF1KHsK9teFQ2vmoXZ4tH+ppy8cGYi72hzi+ice2htvH564LfFnbhKX3v0OYXkc+E35dcXNYscWb0fX4x6c+t65L687Dhfijzi934frqmdThevPdb0ucX8/F0seySs3xWxGPp84vRZ/Fm1UWVDdfS5xeTftiqixrbTqTPL0adh5NVF23c+Ej6/GLSG986byaq5/OLSm9Myy6qbLgdyvxi0sN7eojvvKiNU+/97lDmF5VeSzsta+PUmPHB0OYXlX7L6Y0pXb9+uqYpF+/+cib0fX5x6SaRHubf/0Vq20n6XPLG4Xs+HwAAAMAG0XWsWd+7i5quo6LrkNBd1HQdGV2HgO5iRNeR0XUI6S40XUdG1yGku1B0HRldh6DuQtF1ZHQdgrqLhq5jjq5DWHfh6ToAAAAAueg61qzv3UVN11HRdUjoLmq6joyuQ0B3MaLryOg6hHQXmq4jo+sQ0l0ouo6MrkNQd6HoOjK6DkHdRUPXMUfXIay78HQdAAAAAAAAqP6ZNwD5v8warELhAAAAAElFTkSuQmCC">
+                </label>
+                <ul class="app-container">
+                    
+                </ul>
+            </li>
+            <li class="login">
+                <a href="#" class="link">로그인</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main">
+    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="logo">
+    <form class="search">
+        <label class="keyword-container">
+            <svg class="symbol" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            <input required type="search" maxlength="50" name="keyword" title="검색" class="keyword">
+            <a class="feature" href="#" title="음성 검색">
+                <svg class="icon" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path><path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path><path fill="#fbbc05" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path><path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path></svg>
+            </a>
+
+            <a class="feature" href="#" title="이미지로 검색">
+                <svg class="icon" focusable="false" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="192" width="192"></rect><g><circle fill="#34a853" cx="144.07" cy="144" r="16"></circle><circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle><path fill="#ea4335" d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"></path><path fill="#fbbc05" d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"></path><path fill="#4285f4" d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"></path></g></svg>
+            </a>
+        </label>
+        <div class="button-container">
+            <input type="submit" class="button" value="Google 검색">
+            <input type="button" class="button" value="I'm Feeling Lucky">
+        </div>
+    </form>
+</main>
+
+<footer id="footer">
+    <div class="row region">대한민국</div>
+    <nav class="row nav">
+        <ul class="menu">
+            <li class="item">
+                <a href="#" class="link">광고</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">비즈니스</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">검색의 원리</a>
+            </li>
+            <li class="spring"></li>
+            <li class="item">
+                <a href="#" class="link">개인정보처리방침</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">약관</a>
+            </li>
+            <li class="item">
+                <a href="#" class="link">설정</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>

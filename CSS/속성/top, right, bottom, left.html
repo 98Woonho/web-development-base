@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div.one {
+            width: 250px;
+            height: 250px;
+            background-color: rgb(200, 100, 100);
+        }
+
+        div.two {
+            width: 250px;
+            height: 250px;
+            background-color: rgb(150, 150, 250);
+            position: relative;
+
+        }
+
+        div.three {
+            width: 250px;
+            height: 250px;
+            background-color: rgb(250, 150, 250);
+        }
+
+        div.two > div.child {
+            right: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute; /* 선조를 기준으로 포지셔닝이 될려면, 선조의 position의 속성 값이 static이 아니어야 함. 그래서 div.two에 position을 relative로 변경해야 absolute로 동작을 함 */
+        }
+
+        div.four {
+            right: 15px;
+            bottom: 15px;
+            width: 125px;
+            height: 200px;
+            background-color: rgb(200, 200, 100);
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="one"></div>
+<div class="two">
+    <div class="child"></div>
+</div>
+<div class="three"></div>
+<div class="four"></div>
+
+</body>
+</html>
